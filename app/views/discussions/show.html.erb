@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @discussion.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @discussion.content %>
+</p>
+
+<% if @discussion.comments.any? %>
+  <h4>Comments</h4>
+  <% @discussion.comments.each do |comment| %>
+    <p>
+      <strong><%= comment.user.name %>: </strong>
+      <%= comment.body %>
+    <p>
+  <% end %>
+<% end %>
+
+
+<%= link_to 'Edit', edit_discussion_path(@discussion) %> |
+<%= link_to 'Back', discussions_path %>
